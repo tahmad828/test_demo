@@ -1,34 +1,37 @@
 pipeline {
     agent any
+
     stages {
         stage('Build') {
             steps {
                 echo 'Building..'
-                // Here you can define commands for your build
+                // build commands
             }
         }
+
         stage('Test') {
             steps {
                 echo 'Testing..'
-                // Here you can define commands for your tests
+                // test commands
             }
         }
+
         stage('Deploy') {
             steps {
                 echo 'Deploying....'
-                // Here you can define commands for your deployment
+                // deployment commands
             }
         }
     }
-      post {
 
-            always {
-                    echo 'build condition running'
-                    }
-          failure {
-                    echo 'Post Action if Build Failed'
-          }
-      }
+    post {
+        always {
+            echo 'Build condition running'
+        }
+
+        failure {
+            echo 'Post Action if Build Failed'
+        }
+    }
 }
-    
-}
+
